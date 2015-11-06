@@ -1,0 +1,70 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Predict Stock</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+    <body>
+        <form action="#" th:action="@{/cmpe295project/predictionresult}" th:object="${user}" method="post">
+            <table>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="date" th:field="*{date}" /></td>
+                    <td th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</td>
+                </tr>
+                <tr>
+                    <td>Open Value:</td>
+                    <td><input type="text" th:field="*{open}" /></td>
+                    <td th:if="${#fields.hasErrors('open')}" th:errors="*{open}">Open Value Error</td>
+                </tr>
+                <tr>
+                    <td>Open Volume:</td>
+                    <td><input type="text" th:field="*{volume}" /></td>
+                    <td th:if="${#fields.hasErrors('volume')}" th:errors="*{volume}">Volume Error</td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td><input type="list" th:field="*{type}" /></td>
+                    <td th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Type Error</td>
+                      <datalist id="type">
+    					<option value="Hardware">
+    					<option value="Software">
+  				      </datalist>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="list" th:field="*{age}" /></td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                      <datalist id="age">
+    					<option value="new">
+    					<option value="mid">
+    					<option value="old">
+    					
+  				      </datalist>                    
+                </tr>
+                <tr>
+                    <td>Competition:</td>
+                    <td><input type="list" th:field="*{competition}" /></td>
+                    <td th:if="${#fields.hasErrors('competition')}" th:errors="*{competition}">Competition Error</td>
+                      <datalist id="competition">
+    					<option value="Yes">
+    					<option value="No">
+  				      </datalist>                    
+                </tr>                                                
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                    
+                </tr>
+                <tr>
+                    <td><a href="/cmpe295project/predict">Predict</button></td>
+                    <td><a href="/cmpe295project/signout">Signout</button></td>
+                    
+                    
+                </tr>                
+                
+            </table>
+        </form>
+    </body>
+</html>

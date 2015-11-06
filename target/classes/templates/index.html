@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to Stock Prediction</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+    <body>
+        <form action="#" th:action="@{/cmpe295project/index/users}" th:object="${user}" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" th:field="*{username}" /></td>
+                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" th:field="*{password}" /></td>
+                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">SignIn</button></td>
+                    <td><a href="/cmpe295project/register">Register</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
